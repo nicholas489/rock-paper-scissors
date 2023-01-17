@@ -20,10 +20,14 @@ public class rockPaperScissors {
             if (userChoice.equals("End")) {
                 break;
             }
+            // Makes the selection for the computer by choosing a random index from choicesArr
             String computerChoice = choicesArr[rand.nextInt(upperBound)];
+            // Temporarily stops running code for 1000 ms (1s)
             Thread.sleep(1000);
+            // Prints out the selection done by the computer
             System.out.println(computerChoice);
             Thread.sleep(1000);
+            // If userChoice and computerChoice are the same, they tied
             if (userChoice.equals(computerChoice)) {
                 System.out.println("You tied!");
             }
@@ -33,9 +37,11 @@ public class rockPaperScissors {
             else if (choicesStr.indexOf(userChoice) - 9 == choicesStr.indexOf(computerChoice) || userChoice.equals("Rock") && computerChoice.equals("Paper")) {
                 System.out.println("You lose!");
             }
+            // If no one wins, loses or ties, then we know that bad input was used by the user
             else {
                 throw new IllegalArgumentException("Bad input! Please rerun this program");
             }
         }
+        sc.close();
     }
 }
